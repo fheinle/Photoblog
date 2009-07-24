@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 
-""" helper functions """
+''' helper functions '''
 
 import os
 
@@ -20,10 +20,10 @@ EXIF_FMTS = {
 }
 
 def get_template(name):
-    """get templates from directory structure
+    '''get templates from directory structure
 
     @param name: the filename, sans path
-    """
+    '''
     templ= os.path.join(
         os.path.dirname(__file__),
         'templates',
@@ -32,23 +32,23 @@ def get_template(name):
     return templ
 
 def render(template_name, context={}):
-    """render the given template with the given content
+    '''render the given template with the given content
 
     includes configuration file contents as conf in templates
     
     @param template_name: template filename, sans path, with extension
     @param context: a dictionary with context information to be included
-    """
+    '''
     templ = get_template(template_name)
     context.update({'conf':conf})
     return template.render(templ, context)
 
 def _get_newer_or_older(pic, newer=True):
-    """query the database for adjacent pictures
+    '''query the database for adjacent pictures
     
     @param pic: center picture
     @param newer: True for LHS, False for RHS
-    """
+    '''
     if newer:
         options = ('>', 'ASC')
     else:
@@ -58,9 +58,9 @@ def _get_newer_or_older(pic, newer=True):
     return picture.get()
 
 def get_newer(pic):
-    """get the next picture"""
+    '''get the next picture'''
     return _get_newer_or_older(pic, newer=True)
 
 def get_older(pic):
-    """get the previous picture"""
+    '''get the previous picture'''
     return _get_newer_or_older(pic, newer=False)

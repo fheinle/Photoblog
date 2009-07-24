@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 
-""" Update handler, gets new pictures from picasa 
+''' Update handler, gets new pictures from picasa 
 
-only admins should be allowed to access this."""
+only admins should be allowed to access this.'''
 
 import datetime
 import logging
@@ -33,7 +33,7 @@ class Update(webapp.RequestHandler):
         super(Update, self).__init__(*args, **kwargs)
 
     def get(self):
-        """no arguments"""
+        '''no arguments'''
         photos = self.gd_client.GetFeed(
             '/data/feed/api/user/%s/albumid/%s?kind=photo' %
             (conf.picasaweb_username, conf.picasaweb_album_id)

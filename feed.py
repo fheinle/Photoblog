@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 
-""" create the rss feed """
+''' create the rss feed '''
 
 import datetime
 
@@ -17,9 +17,9 @@ from google.appengine.ext.webapp import template
 from google.appengine.api import memcache
 
 class Feed(webapp.RequestHandler):
-    """our newsfeed"""
+    '''our newsfeed'''
     def get(self):
-        """no arguments"""
+        '''no arguments'''
         rss = memcache.get('feed')
         
         if rss is None:

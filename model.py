@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 
-"""Database models"""
+'''Database models'''
 
 from random import random
 from google.appengine.ext import db
@@ -12,7 +12,7 @@ class Subscription(db.Model):
     active = db.BooleanProperty()
 
 class Picture(db.Model):
-    """maps to a picture in picasa"""
+    '''maps to a picture in picasa'''
     public = db.BooleanProperty()
     gphoto_id = db.IntegerProperty()
     height = db.IntegerProperty()

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 
-""" subscription handling """
+''' subscription handling '''
 
 from model import Subscription
 from utils import render
@@ -16,16 +16,16 @@ from uuid import uuid4 as uuid
 import logging
 
 class Subscribe(webapp.RequestHandler):
-    """Handle subscription and send confirmation mails"""
+    '''Handle subscription and send confirmation mails'''
     def get(self):
-        """initial call, render and show the form"""
+        '''initial call, render and show the form'''
         error = bool(self.request.GET.get('error', None))
         self.response.out.write(render('subscribe.html', {'error':error}))
     
     def post(self):
-        """email address has been entered
+        '''email address has been entered
         
-        validate and send the confirmation mail"""
+        validate and send the confirmation mail'''
         to_address_1 = self.request.get('to_1')
         to_address_2 = self.request.get('to_2')
         if not to_address_1 == to_address_2:
@@ -58,7 +58,7 @@ class Subscribe(webapp.RequestHandler):
             logging.info('New subscription: %s' % subscription.email)
             logging.debug('Sending confirmation mail to %s' % to_address_1)
             mail.send_mail(
-                sender="%s (Photoblog) <%s>" % (conf.mail_from_name,
+                sender='%s (Photoblog) <%s>' % (conf.mail_from_name,
                                                 conf.mail_from_address
                                                 ),
                 to=to_address_1,
@@ -68,9 +68,9 @@ class Subscribe(webapp.RequestHandler):
             self.redirect('/abo/success')
 
 class Confirm(webapp.RequestHandler):
-    """activate email subscription"""
+    '''activate email subscription'''
     def get(self, key):
-        """check if the given key is valid"""
+        '''check if the given key is valid'''
         query = Subscription.all().filter('validation_key =', key)
         if not query.count():
             logging.debug('Subscription failed with key %s' % key)
@@ -84,7 +84,7 @@ class Confirm(webapp.RequestHandler):
         self.response.out.write(resp)
 
 class Unsubscribe(webapp.RequestHandler):
-    """unsubscribe an address"""
+    '''unsubscribe an address'''
     def get(self, address):
         address = unquote_plus(address)
         query = Subscription.all().filter('email =', address)
@@ -100,11 +100,11 @@ class Unsubscribe(webapp.RequestHandler):
         self.response.out.write(resp)
 
 class Status(webapp.RequestHandler):
-    """display success info"""
+    '''display success info'''
     def get(self):
-        """doesn't do much"""
+        '''doesn't do much'''
         mails = Subscription.all()
-        self.response.out.write(render('abo_subscribe.html', {'mails':mails}))
+        self.response.out.write(render('abo_subscribe.html')
 
 application = webapp.WSGIApplication(
         [('/abo/subscribe', Subscribe),

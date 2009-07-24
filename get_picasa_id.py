@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 
-""" helper that displays all public album ids for a user"""
+''' helper that displays all public album ids for a user'''
 
 import gdata.photos.service
 import sys

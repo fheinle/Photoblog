@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 
-""" the photoblog """
+''' the photoblog '''
 import logging
 import datetime
 from random import random
@@ -17,9 +17,9 @@ from model import Picture
 from utils import render, get_newer, get_older
 
 class List(webapp.RequestHandler):
-    """List all pictures in the datastore"""
+    '''List all pictures in the datastore'''
     def get(self):
-        """no arguments"""
+        '''no arguments'''
         page = memcache.get('mosaic')
         if page is None:
             pics = Picture.all()
@@ -32,22 +32,22 @@ class List(webapp.RequestHandler):
         self.response.out.write(page)
 
 class Random(webapp.RequestHandler):
-    """redirect to a random picture"""
+    '''redirect to a random picture'''
     def get(self):
-        """no arguments"""
+        '''no arguments'''
         random_pic = Picture.gql(
-            "WHERE rand > :1 ORDER BY rand LIMIT 1",
+            'WHERE rand > :1 ORDER BY rand LIMIT 1',
             random()
                 ).get()
         logging.debug('Random Picture: %s' % random_pic)
         self.redirect('/photo/%s' % random_pic.gphoto_id)
 
 class Photo(webapp.RequestHandler):
-    """display individual pictures"""
+    '''display individual pictures'''
     def get(self, gphoto_id=None):
-        """display the picture
+        '''display the picture
         @param gphoto_id: the numeric ID from picasa
-        """
+        '''
         if not gphoto_id:
             query = Picture.gql('ORDER BY uploaded DESC LIMIT 1')
             latest_picture = query.get()
@@ -68,16 +68,16 @@ class Photo(webapp.RequestHandler):
         self.response.out.write(page)
 
 class About(webapp.RequestHandler):
-    """small about page"""
+    '''small about page'''
     def get(self):
-        """no arguments"""
+        '''no arguments'''
         self.response.out.write(render('about.html'))
 
 application = webapp.WSGIApplication(
         [('/', Photo),
          ('/info', About),
          ('/mosaic', List),
-         ('/zufall', Random),
+         ("/zufall", Random),
          ('/photo/(?P<pic>\d+)', Photo)],
         debug=True
 )
