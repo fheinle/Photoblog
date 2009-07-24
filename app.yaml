@@ -1,8 +1,21 @@
-application: photoblog
+application: photoblog-fheinle
 version: 1
 runtime: python
 api_version: 1
 
 handlers:
+- url: /media
+  static_dir: media
+
+- url: /update
+  script: update.py
+  login: admin
+
+- url: /abo/.*
+  script: subscribe.py
+
+- url: /feed
+  script: feed.py
+
 - url: /.*
-  script: main.py
+  script: view.py
