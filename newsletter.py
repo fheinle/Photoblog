@@ -25,7 +25,7 @@ class Newsletter(webapp.RequestHandler):
         message = mail.EmailMessage()
         message.to = conf.mail_from_address
         message.bcc = [r.email for r in recipients]
-        message.subject = "Neue Bilder - %s" % conf.title
+        message.subject = conf.mail_newsletter_subject
         message.body = render('newsletter.txt', {'pics':pictures_today})
         message.send()
 
