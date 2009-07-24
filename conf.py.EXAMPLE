@@ -1,0 +1,21 @@
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+
+""" photoblog configuration """
+
+# use this host in emails for confirmation link etc
+host = 'http://fotos.example.com'
+# Your name and mail address. Will be used in subscription mails
+# and newsfeeds. Make sure to use an authorized sender address here, i.e.
+# the administrators' gmail address
+mail_from_name = 'Enter your name here!'
+mail_from_address = 'Here goes your Gmail Address or any other '
+
+# Picasa credentials
+picasaweb_username = 'replacemewithyourgmailaddress@gmail.com.invalid'
+picasaweb_password = 'heregoesyourpasswordforgmail'
+# Picasa album id. You can use the included get_picasa_id.py to find it
+picasaweb_album_id = '5358090787440875393'
+
+# will be used in emails and throughout your photoblog
+title = 'Fotoblog // %s' % mail_from_name
