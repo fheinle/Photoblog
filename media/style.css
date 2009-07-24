@@ -1,0 +1,57 @@
+#pic_list img, #pic_nav img {
+    height:64px;
+    width:64px;
+    border: 1px solid black;
+    display:block;
+    float:left;
+    margin:3px;
+    text-align:center;
+}
+
+#exif {
+    display: none;
+    width:350px;
+    border:1px solid white;
+    color:black;
+    font-size:0.8em;
+    position:absolute;
+    z-index:3;
+    background:#aaa url(/media/1px.gif);
+    opacity:0.87;
+}
+
+#exif ul {
+    padding:0;
+    margin:0;
+}
+
+#exif li {
+    padding: 3px;
+    display:block;
+    clear:left;
+}
+
+#exif li label {
+    float:left;
+    font-weight:bold;
+}
+
+#photo {
+    padding:1em;
+    border:1px solid black;
+}
+
+#pic_nav {
+    position:relative;
+    top:2em;
+}
+
+#pic_nav table {
+    border-spacing:0
+}
+#pic_nav td {
+    border: 1px solid black;
+}
+a img {
+    border: 0;
+}
