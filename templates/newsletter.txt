@@ -1,0 +1,17 @@
+Hallo,
+
+Sie hatten sich zur Benachrichtigung über neue Fotos in meinem Fotoblog
+eingetragen. 
+
+Heute gibt es Neuigkeiten:
+
+{% for pic in pics %}
+{{ conf.host }}/photo/{{ pic.gphoto_id }}
+{% endfor %}
+
+Bitte beachten Sie, dass diese E-Mail automatisch versandt worden ist.
+
+Gruß,
+
+-- 
+{{ conf.mail_from_name }}
