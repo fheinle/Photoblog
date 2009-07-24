@@ -11,6 +11,10 @@ handlers:
   script: update.py
   login: admin
 
+- url: /send-newsletter
+  script: newsletter.py
+  login: admin
+
 - url: /abo/.*
   script: subscribe.py
 
