@@ -19,7 +19,6 @@ class Picture(db.Model):
     width = db.IntegerProperty()
     exposure = db.FloatProperty()
     flash = db.BooleanProperty()
-    focallength = db.FloatProperty()
     fstop = db.FloatProperty()
     iso = db.IntegerProperty()
     make = db.StringProperty()
