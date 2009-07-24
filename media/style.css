@@ -1,3 +1,35 @@
+html {
+    border-top: 1em solid black;
+    font-family: Georgia, Times New Roman, serif;
+}
+#content {
+    width:600px;
+    margin:auto;
+    line-height:1.5em;
+    text-align:justify;
+}
+#nav {
+    float:left;
+    margin:1em;
+    line-height:1.5em;
+    position:fixed;
+}
+#nav ul {
+    list-style-type: square;
+    text-align:right;
+}
+#nav h1 {
+    font-size:1em;
+}
+
+h1, h2, h3, h4, h5, h6 { 
+    text-align:right
+}
+
+a {
+    color:#697bff;
+}
+
 #pic_list img, #pic_nav img {
     height:64px;
     width:64px;
