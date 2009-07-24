@@ -1,0 +1,52 @@
+{% extends "base.html"%}
+{% block title %}ein Bild{% endblock %}
+{% block additional %}
+<h1>Bild</h1>
+<ul>
+    <li><a href="javascript:void()" id="showexif">Exif</a>
+    <div id="exif">
+    <ul>
+        <li><label>Aufgenommen</label>{{ pic.taken|date:"D, d.M y H:m"}}</li>
+        <li><label>Blende</label>{{ pic.fstop }}</li>
+        <li><label>Belichtungszeit</label>{{ pic.exposure|floatformat:4 }}s</li>
+        <li><label>ISO</label>{{ pic.iso }},
+            {% if pic.flash %}mit{% else %}ohne{% endif %} Blitz</li>
+        <li><label>Cam</label>{{ pic.make }} {{ pic.model }}</li>
+    </ul>
+    </div>
+</li>
+<li>
+  <a href="mailto:photo-{{ pic.gphoto_id }}@florianheinle.de">kommentieren</a>
+</li>
+</ul>
+<div id="pic_nav">
+<table>
+    <tr>
+        <td style="border-bottom:0">
+            {% if next %}
+            <a href="/photo/{{ next.gphoto_id }}">
+                <img src="{{ next.thumbnail }}" alt="thumbnail">
+            </a>
+            {% else %}-{% endif %}
+        </td>
+        <td style="border-bottom:0">
+            {% if prev %}
+            <a href="/photo/{{ prev.gphoto_id }}">
+                <img src="{{ prev.thumbnail }}" alt="thumbnail">
+            </a>
+            {% else %}-{% endif %}
+        </td>
+    <tr>
+        <td style="text-align:left; border-top:0;">Vor</td>
+        <td style="text-align:right; border-top:0;">Zurück</td>
+    </tr>
+</table>
+</div>
+{% endblock %}
+{% block content %}
+<div>
+    <img src="{{ pic.content }}?imgmax=800"
+    id="photo" height={{ pic.height }} width={{ pic.width }}
+    alt="main picture">
+</div>
+{% endblock %}

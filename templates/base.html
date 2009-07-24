@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html lang="de">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>{% block title %}Homepage{% endblock %} &mdash;
+        {{ conf.title }}</title>
+    <link rel="stylesheet" type="text/css"
+        href="/media/style.css">
+    <link rel="stylesheet" type="text/css"
+        href="http://www.florianheinle.de/static/themes/tiax/style.css">
+    <link rel="alternate" type="application/atom+xml" 
+          title="Feed (Atom)" href="/feed">
+    <script type="text/javascript"
+        src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js">
+    </script>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function() {
+                $("#showexif").click(function () {
+                    $("#exif").slideToggle(600);
+                    });
+                });
+    </script>   
+</head>
+<body>
+    <div id="head">
+        <h1>{{ conf.title }}</h1>
+    </div>
+    <div id="nav">
+        <h1>Navigation</h1>
+        <ul>
+            <li><a href="/">neuestes Bild</a></li>
+            <li><a href="/mosaic">Übersicht</a></li>
+            <li><a href="/zufall">Zufälliges Bild</a></li>
+            <li><a href="/abo/subscribe">Abonnieren</a></li>
+            <li><a href="/info">Impressum</a></li>
+            <li><a href="http://www.florianheinle.de">meine Homepage</a></li>
+        </ul>
+        {% block additional %}{% endblock %}
+    </div>
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

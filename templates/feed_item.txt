@@ -1,0 +1,1 @@
+<![CDATA[<a href="{{ host }}/photo/{{ pic.gphoto_id }}"><img src="{{ pic.thumbnail }}" width="64" height="64"></a>]]>

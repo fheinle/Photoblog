@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Neue Bilder{% endblock %}
+{% block content %}
+    <h1>Updated pictures</h1>
+    <p>The following pictures have been found in your picasa album:</p>
+    <h2>New pictures</h2>
+    <ul>
+    {% for pic in updated %}
+    <li style="padding-bottom:1em;">
+        <a href="/photo/{{ pic.gphoto_id }}"><img src="{{ pic.thumbnail }}"
+            alt="thumbnail"></a>
+    </li>
+    {% endfor %}
+    </ul>
+    <h2>Not updated pictures</h2>
+    <ul>
+    {% for pic in old %}
+    <li style="padding-bottom:1em;">
+        <a href="/photo/{{ pic.gphoto_id }}"><img src="{{ pic.thumbnail }}"
+            alt="thumbnail"></a>
+    </li>
+    {% endfor %}
+    </ul>
+{% endblock %}

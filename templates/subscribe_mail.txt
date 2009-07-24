@@ -1,0 +1,21 @@
+Hallo,
+
+Ihre Mail-Adresse wurde auf {{ host }} für die Benachrichtigung über neue
+Einträge eingegeben. Dies ist die dazu gehörige Mail, die sicher stellen soll,
+dass niemand fremde Mail-Adressen eintragen kann.
+
+Wenn Sie über neue Einträge in meinem Photoblog benachrichtigt werden möchten,
+bestätigen Sie dies bitte per Klick auf den folgenden Link:
+
+{{ link }}
+
+Sollten Sie keine Benachrichtigung wünschen, können Sie diese E-Mail
+schlichtweg ignorieren - ohne Ihre Bestätigung werden sie nicht in die Liste
+eingetragen.
+
+Für Fragen stehe ich gern unter {{ sender_mail }} zur Verfügung. Bitte
+beachten Sie, dass diese E-Mail automatisiert versandt wurde.
+
+Gruß,
+
+-- {{ sender_name }}

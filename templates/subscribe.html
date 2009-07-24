@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title%}Abonnieren{% endblock %}
+{% block content %}
+<h1>Eintragen</h1>
+{% if error %}
+<div id="error">Die Adressen stimmen leider nicht überein.</div>
+{% endif %}
+<form method="POST" action="">
+    <table>
+    <tr>
+        <td>Ihre Mail-Adresse:</td>
+        <td>
+            <input type="text" name="to_1" value="Hier eintragen" size=20
+            onfocus="if (this.value == 'Hier eintragen') {this.value = '';}"
+            onblur="if (this.value == '') {this.value = 'Hier eintragen';}">
+        </td>
+    </tr>
+    <tr>
+        <td>Zur Bestätigung:</td>
+        <td>
+            <input type="text" name="to_2" value="Hier bestätigen" size=20
+            onfocus="if (this.value == 'Hier bestätigen') {this.value = '';}"
+            onblur="if (this.value == '') {this.value = 'Hier bestätigen';}">
+        </td>
+    </tr>
+    </table>
+    <p><input type="submit" name="subscribe" value="Eintragen"></p>
+</form>
+<h1>Abonnieren</h1>
+<p>Hier haben Sie die Möglichkeit, sich einmal täglich über neue Bilder in
+meinem Photoblog benachrichtigen zu lassen.</p>
+<p>Um sicher zu stellen, dass sich keine Tippfehler einschleichen und niemand
+Ihre Mail-Adresse unberechtigt einträgt, müssen Mail-Adressen zunächst
+zweimal eingegeben und anschließend bestätigt werden. Zu diesem Zweck wird
+eine E-Mail an die angegebene Adresse versandt, die einen Bestätigungslink
+enthält.</p>
+<p>Ihre Mailadresse wird hier ausschließlich zur Benachrichtigung über neue
+Veröffentlichungen gespeichert und verwendet. Eine Weitergabe oder
+sonstige Verwendung der eingegebenen Daten findet nicht statt.</p>
+<p>Sollten Sie keine weiteren Benachrichtigungen mehr wünschen, finden Sie in
+jeder bisherigen Mail einen Link zum Austragen Ihrer Adresse aus dem
+Verteiler.</p>
+{% endblock %}
