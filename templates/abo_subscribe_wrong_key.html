@@ -2,5 +2,5 @@
 {% block title %}Bestätigung fehlgeschlagen{% endblock %}
 {% block content %}
 <h1>Bestätigung fehlgeschlagen</h1>
-<p>Dieser Bestätigungslink ist leider nicht gültig. Bitte überprüfen Sie, ob sie den vollständigen Link verwendet haben. Bei Fragen können Sie sich an <a href="mailto:photoblog@florianheinle.de">photoblog@florianheinle.de</a> wenden.</p>
+<p>Dieser Bestätigungslink ist leider nicht gültig. Bitte überprüfen Sie, ob sie den vollständigen Link verwendet haben. Bei Fragen können Sie sich an <a href="mailto:{{ conf.mail_from_address }}">{{ conf.mail_from_address }}</a> wenden.</p>
 {% endblock %}
