@@ -34,8 +34,7 @@ class Feed(webapp.RequestHandler):
         if rss is None:
             pics = Picture.all()
             host = self.request.host_url
-            rss = render('feed.xml', {'pics':pics, 'conf':conf,
-                                      'host':host})
+            rss = render('feed.xml', {'pics':pics, 'host':host})
             memcache.set('feed', rss, time=900)
         self.response.out.write(rss)
 
