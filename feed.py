@@ -18,17 +18,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import datetime
-
 from utils import render
 import conf
-import PyRSS2Gen
 from model import Picture
 
-from google.appengine.ext import db
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import webapp
-from google.appengine.ext.webapp import template
 from google.appengine.api import memcache
 
 class Feed(webapp.RequestHandler):
@@ -39,7 +34,6 @@ class Feed(webapp.RequestHandler):
         
         if rss is None:
             pics = Picture.all()
-            t = get_template('feed.xml')
             host = self.request.host_url
             rss = render('feed.xml', {'pics':pics, 'conf':conf,
                                       'host':host})

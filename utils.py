@@ -39,7 +39,7 @@ def get_template(name):
 
     @param name: the filename, sans path
     '''
-    templ= os.path.join(
+    templ = os.path.join(
         os.path.dirname(__file__),
         'templates',
         name

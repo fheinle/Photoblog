@@ -18,11 +18,11 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-
 from random import random
 from google.appengine.ext import db
 
 class Subscription(db.Model):
+    '''subscription to our newsletter'''
     email = db.EmailProperty()
     validation_key = db.StringProperty()
     active = db.BooleanProperty()

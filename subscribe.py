@@ -24,11 +24,11 @@ import conf
 
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
-from google.appengine.ext.webapp import template
 from google.appengine.api import mail
 
 from uuid import uuid4 as uuid
 import logging
+from urllib import unquote_plus
 
 class Subscribe(webapp.RequestHandler):
     '''Handle subscription and send confirmation mails'''
@@ -101,6 +101,9 @@ class Confirm(webapp.RequestHandler):
 class Unsubscribe(webapp.RequestHandler):
     '''unsubscribe an address'''
     def get(self, address):
+        '''unsubscribe the given address
+        
+        @param address: urllib.quote_plus() has been used on it'''
         address = unquote_plus(address)
         query = Subscription.all().filter('email =', address)
         if not query.count() == 1:
@@ -118,8 +121,7 @@ class Status(webapp.RequestHandler):
     '''display success info'''
     def get(self):
         '''doesn't do much'''
-        mails = Subscription.all()
-        self.response.out.write(render('abo_subscribe.html')
+        self.response.out.write(render('abo_subscribe.html'))
 
 application = webapp.WSGIApplication(
         [('/abo/subscribe', Subscribe),

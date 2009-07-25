@@ -30,7 +30,6 @@ from utils import EXIF_FMTS, render
 from google.appengine.ext import db
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import webapp
-from google.appengine.ext.webapp import template
 from google.appengine.api import memcache
 import gdata.photos.service
 from gdata.alt.appengine import run_on_appengine

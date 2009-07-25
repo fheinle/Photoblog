@@ -19,16 +19,12 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import logging
-import datetime
 from random import random
 
-from google.appengine.ext import db
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import webapp
-from google.appengine.ext.webapp import template
 from google.appengine.api import memcache
 
-import conf
 from model import Picture
 from utils import render, get_newer, get_older
 
