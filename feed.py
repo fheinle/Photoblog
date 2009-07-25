@@ -32,7 +32,7 @@ class Feed(webapp.RequestHandler):
         '''no arguments'''
         rss = memcache.get('feed')
         if rss is None:
-            pics = Picture.all()
+            pics = Picture.gql('ORDER BY uploaded DESC LIMIT 11')
             host = self.request.host_url
             rss = render('feed.xml', {'pics':pics, 'host':host})
             memcache.set('feed', rss, time=900)
