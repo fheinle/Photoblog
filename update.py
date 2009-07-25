@@ -111,7 +111,7 @@ class Update(webapp.RequestHandler):
 
 application = webapp.WSGIApplication(
         [('/update', Update)],
-        debug=True
+        debug=conf.debug
 )
 
 if __name__ == '__main__':

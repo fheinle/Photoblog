@@ -127,7 +127,7 @@ application = webapp.WSGIApplication(
         [('/abo/subscribe', Subscribe),
         ('/abo/confirm/(?P<key>\d+)/?', Confirm),
         ('/abo/success', Status)],
-        debug=True
+        debug=conf.debug
 )
 
 if __name__ == '__main__':

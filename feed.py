@@ -31,7 +31,6 @@ class Feed(webapp.RequestHandler):
     def get(self):
         '''no arguments'''
         rss = memcache.get('feed')
-        
         if rss is None:
             pics = Picture.all()
             host = self.request.host_url
@@ -42,7 +41,7 @@ class Feed(webapp.RequestHandler):
 
 application = webapp.WSGIApplication(
         [('/feed', Feed)],
-        debug=True
+        debug=conf.debug
 )
 
 if __name__ == '__main__':

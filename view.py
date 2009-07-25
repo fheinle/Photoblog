@@ -91,7 +91,7 @@ application = webapp.WSGIApplication(
          ('/mosaic', List),
          ("/zufall", Random),
          ('/photo/(?P<pic>\d+)', Photo)],
-        debug=True
+        debug=conf.debug
 )
 
 if __name__ == '__main__':

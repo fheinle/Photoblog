@@ -21,3 +21,7 @@ picasaweb_username = "replacemewithyourgmailaddress@gmail.com.invalid"
 picasaweb_password = "heregoesyourpasswordforgmail"
 # Picasa album id. You can use the included get_picasa_id.py to find it
 picasaweb_album_id = "Enter a long number here!"
+
+# Set to True if you want debug info on excaptions. 
+# Don't do it on production systems
+debug = False

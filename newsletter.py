@@ -46,7 +46,7 @@ class Newsletter(webapp.RequestHandler):
 
 application = webapp.WSGIApplication(
         [('/send-newsletter', Newsletter)],
-        debug=True
+        debug=conf.debug
 )
 
 if __name__ == '__main__':
