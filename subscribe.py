@@ -77,7 +77,7 @@ class Subscribe(webapp.RequestHandler):
                                                 conf.mail_from_address
                                                 ),
                 to=to_address_1,
-                subject="Bestätigung Ihrer Mail-Adresse",
+                subject=conf.mail_confirmation_subject,
                 body = mail_content
             )
             self.redirect('/abo/success')
