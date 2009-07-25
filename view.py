@@ -25,6 +25,7 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import webapp
 from google.appengine.api import memcache
 
+import conf
 from model import Picture
 from utils import render, get_newer, get_older
 
@@ -36,7 +37,7 @@ class List(webapp.RequestHandler):
         if page is None:
             pics = Picture.all()
             page = render('list.html', {'pics':pics})
-            if not memcache.add('mosaic', page, 2419200):
+            if not memcache.add('mosaic', page):
                 logging.error('Mosaic not written to memcache')
             else:
                 logging.debug('New memcache entry: mosaic')
@@ -50,7 +51,7 @@ class Random(webapp.RequestHandler):
         random_pic = Picture.gql(
             'WHERE rand > :1 ORDER BY rand LIMIT 1',
             random()
-                ).get()
+        ).get()
         logging.debug('Random Picture: %s' % random_pic)
         self.redirect('/photo/%s' % random_pic.gphoto_id)
 

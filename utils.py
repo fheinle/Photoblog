@@ -72,10 +72,5 @@ def _get_newer_or_older(pic, newer=True):
     picture = Picture.gql(query, pic.uploaded)
     return picture.get()
 
-def get_newer(pic):
-    '''get the next picture'''
-    return _get_newer_or_older(pic, newer=True)
-
-def get_older(pic):
-    '''get the previous picture'''
-    return _get_newer_or_older(pic, newer=False)
+get_newer = lambda pic: _get_newer_or_older(pic, newer=True)
+get_older = lambda pic: _get_newer_or_older(pic, newer=False)
