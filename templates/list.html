@@ -7,7 +7,7 @@
     <li><span style="font-weight:bold">{{ group.grouper }}</span>
         <div id="container">
             {% for pic in group.list reversed %}
-            <div id="pic_list"> 
+            <div class="pic_list"> 
                     <a href="/photo/{{ pic.gphoto_id }}">
                         <img src="{{ pic.thumbnail }}" alt="thumbnail"
                          width=64 height=64>

@@ -30,7 +30,7 @@ a {
     color:#697bff;
 }
 
-#pic_list img, #pic_nav img {
+.pic_list img, #pic_nav img {
     height:64px;
     width:64px;
     border: 1px solid black;
