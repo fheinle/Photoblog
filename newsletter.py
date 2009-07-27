@@ -32,6 +32,7 @@ class Newsletter(webapp.RequestHandler):
     '''send newsletters to subscribed recipients'''
     def get(self):
         '''no arguments'''
+        today = datetime.today()
         query = Picture.all().filter('uploaded >', 
                 datetime(today.year, today.month, today.day, 0, 0)
         )
