@@ -35,7 +35,7 @@ class List(webapp.RequestHandler):
         '''no arguments'''
         page = memcache.get('mosaic')
         if page is None:
-            pics = Picture.all()
+            pics = Picture.gql('ORDER BY uploaded ASC')
             page = render('list.html', {'pics':pics})
             if not memcache.add('mosaic', page):
                 logging.error('Mosaic not written to memcache')
