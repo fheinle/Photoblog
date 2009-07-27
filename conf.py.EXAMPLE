@@ -22,6 +22,10 @@ picasaweb_password = "heregoesyourpasswordforgmail"
 # Picasa album id. You can use the included get_picasa_id.py to find it
 picasaweb_album_id = "Enter a long number here!"
 
+# Google Analytics ID
+# If you leave this as false, GA code won't be included in templates
+google_analytics = False
+
 # Set to True if you want debug info on excaptions. 
 # Don't do it on production systems
 debug = False
