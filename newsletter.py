@@ -19,6 +19,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from datetime import datetime
+import logging
 
 from google.appengine.api import mail
 from google.appengine.ext import webapp
