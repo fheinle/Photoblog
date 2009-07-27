@@ -13,6 +13,7 @@ html {
     margin:1em;
     line-height:1.5em;
     position:fixed;
+    left:0px;
 }
 #nav ul {
     list-style-type: square;
