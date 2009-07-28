@@ -21,7 +21,6 @@
 from random import random
 from google.appengine.ext import db
 from google.appengine.api import memcache
-from utils import get_older
 
 class Subscription(db.Model):
     '''subscription to our newsletter'''
@@ -61,5 +60,8 @@ class Picture(db.Model):
             self.rand = random()
         else:
             self.rand = 1.0
-        memcache.delete(get_older(self).gphoto_id, namespace='pics')
+        query = "WHERE uploaded < :1 ORDER BY uploaded DESC LIMIT 1"
+        prev_picture = Picture.gql(query, self.uploaded).get()
+        if prev_picture:
+            memcache.delete(str(prev_picture.gphoto_id), namespace='pics')
         super(Picture, self).put()
